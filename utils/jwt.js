@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const jwtSecretKey = process.env.JWT_SECRET_KEY;// Replace this with a strong secret key in production
+const jwtSecretKey = process.env.ACCESS_SECRET_KEY;// Replace this with a strong secret key in production
 
 // Function to generate a JWT token
 function generateToken(payload) {

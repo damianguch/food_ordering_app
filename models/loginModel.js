@@ -1,4 +1,4 @@
-const con = require('../db/connections')
+const db = require('../db/connections')
 const argon2 = require('argon2');
 //const bcrypt = require('bcrypt');
 
@@ -6,7 +6,7 @@ const argon2 = require('argon2');
 async function loginLogic(phone, password) {
     return new Promise((resolve, reject) => {
       const query = `SELECT * FROM users WHERE phone = ?`;
-      con.query(query, [phone], async (error, results) => {
+      db.query(query, [phone], async (error, results) => {
         if (error) {
           reject(error);
         } else {
@@ -28,7 +28,7 @@ const checkIfPhoneNumberExists = async (phone) => {
     return new Promise((resolve, reject) => {
   
       const query = `SELECT * FROM users WHERE phone = ?`;
-      con.query(query, [phone], (error, results) => {
+      db.query(query, [phone], (error, results) => {
         if (error) {
           reject(error);
         } else {
@@ -49,7 +49,7 @@ const checkIfPhoneNumberExists = async (phone) => {
 async function checkUsers(phone) {
     return new Promise((resolve, reject) => {
       const query = `SELECT * FROM users WHERE phone = ?`;
-      con.query(query, [phone], async (error, results) => {
+      db.query(query, [phone], async (error, results) => {
         if (error) {
           reject(error);
         } else {
@@ -63,7 +63,7 @@ async function checkUsers(phone) {
 async function profileName(phone) {
     return new Promise((resolve, reject) => {
       const query = `SELECT * FROM users WHERE phone = ?`;
-      con.query(query, [phone], async (error, results) => {
+      db.query(query, [phone], async (error, results) => {
         if (error) {
           reject(error);
         } else {

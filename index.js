@@ -5,13 +5,17 @@ const path = require('path');
 require("dotenv").config();
 
 const servicesRoutes = require("./routes/servicesRoutes");
+var corsOptions = {
+  origin: 'http://localhost:3000'
+};
 
 // MIDDLEWARES
+app.use(cors(corsOptions));
 app.use(express.json())
 app.use(cors())
 
 // ROUTES
-app.use("/api/v1/", servicesRoutes)
+app.use("/api/", servicesRoutes)
 // Serve images from the 'assets' folder
 app.use('/assets/images/uploads', express.static(path.join(__dirname, 'assets/images/uploads')));
 

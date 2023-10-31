@@ -16,8 +16,8 @@ app.use("/api/v1/", servicesRoutes)
 app.use('/assets/images/uploads', express.static(path.join(__dirname, 'assets/images/uploads')));
 
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(port, () => {
-  console.log(`Server Listening on ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server Listening on ${PORT}`);
 });
